@@ -1,6 +1,7 @@
 import "./Video.css";
 
-const Video = ({ title, views, time, channel, _id, isVerified }) => {
+function Video({ title, views, time, channel, _id, isVerified, children }) {
+  console.log("Render Video");
   return (
     <>
       <div className="container">
@@ -14,9 +15,11 @@ const Video = ({ title, views, time, channel, _id, isVerified }) => {
         <div className="views">
           {views} views <span>.</span> {time}
         </div>
+
+        <div>{children}</div>
       </div>
     </>
   );
-};
+}
 
 export default Video;
