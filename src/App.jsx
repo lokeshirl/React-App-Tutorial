@@ -1,25 +1,24 @@
 import "./App.css";
 import Video from "./components/Video";
+import videoData from "./data/data";
 
 function App() {
-  let videoData = {
-    _id: 1,
-    title: "React JS Tutorials",
-    views: "999K",
-    time: "1 year ago",
-    channel: "Coder Dost",
-  };
   return (
     <>
       <div className="App">
-        <Video {...videoData} />
-        <Video
-          _id="2"
-          title="Node JS Tutorials"
-          channel="Code with Harry"
-          views="100K"
-          time="1 Week ago"
-        />
+        {videoData.map((video) => {
+          return (
+            <Video
+              key={video._id}
+              _id={video._id}
+              title={video.title}
+              views={video.views}
+              time={video.time}
+              channel={video.channel}
+              isVerified={video.isVerified}
+            />
+          );
+        })}
       </div>
     </>
   );
