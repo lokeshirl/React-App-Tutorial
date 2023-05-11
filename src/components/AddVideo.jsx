@@ -5,19 +5,21 @@ let initialState = {
   channel: "Coder's Gyan",
   time: "1 Day ago",
   isVerified: true,
+  title: "",
+  views: "",
 };
-function AddVideo() {
+function AddVideo({ addVideos }) {
   const [video, setVideo] = useState(initialState);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(video);
+    addVideos(video);
+    setVideo(initialState);
   }
 
   function handleChange(e) {
     // console.log(e.target.name, e.target.value);
     setVideo({ ...video, [e.target.name]: e.target.value });
-    console.log(video);
   }
   return (
     <>
@@ -27,20 +29,16 @@ function AddVideo() {
           name="title"
           onChange={handleChange}
           placeholder="title"
+          value={video.title}
         />
         <input
           type="text"
           name="views"
           onChange={handleChange}
           placeholder="views"
+          value={video.views}
         />
-        <button
-          onClick={() => {
-            handleSubmit;
-          }}
-        >
-          Add Video
-        </button>
+        <button onClick={handleSubmit}>Add Video</button>
       </form>
     </>
   );
