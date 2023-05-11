@@ -3,6 +3,7 @@ import "./App.css";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videoData from "./data/data";
+import AddVideo from "./components/AddVideo";
 
 function App() {
   console.log("Render App");
@@ -15,25 +16,7 @@ function App() {
         className="App"
         onClick={() => console.log("App bro! stop bubbling")}
       >
-        <div>
-          <button
-            onClick={() => {
-              setVideos([
-                ...videos,
-                {
-                  _id: videos.length + 1,
-                  title: "Demo Tutorials",
-                  channel: "Coder's Gyan",
-                  views: "10K",
-                  time: "1 Day ago",
-                  isVerified: true,
-                },
-              ]);
-            }}
-          >
-            Add Video
-          </button>
-        </div>
+        <AddVideo />
         {videos.map((video) => {
           return (
             <>
@@ -63,3 +46,30 @@ function App() {
 }
 
 export default App;
+
+// just a minute -- remove after completing this lecture
+// #reference
+
+/* 
+
+<div>
+  <button
+    onClick={() => {
+      setVideos([
+        ...videos,
+        {
+          _id: videos.length + 1,
+          title: "Demo Tutorials",
+          channel: "Coder's Gyan",
+          views: "10K",
+          time: "1 Day ago",
+          isVerified: true,
+        },
+      ]);
+    }}
+  >
+    Add Video
+  </button>
+</div>
+
+*/
